@@ -52,7 +52,7 @@ function getWeather(response) {
   let weatherIcon = document.querySelector("#weather-icon");
   weatherIcon.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/${response.data.condition.icon}/.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
 }
 

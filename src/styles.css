@@ -74,20 +74,20 @@ p.description::first-letter {
 }
 
 .weather-icon {
-  width: 35%;
-  margin-top: 5px;
+  width: 75px;
+  height: 75px;
   align-self: flex-start;
 }
 
 p.degrees {
   font-size: 40px;
-  align-self: flex-start;
+  margin-top: 10px;
 }
 
 p.celsius {
   font-size: 18px;
   align-self: baseline;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 p.fahrenheit {
@@ -128,7 +128,6 @@ ul.wind-elements,
 .degree-container {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   gap: 5px;
   font-size: 22px;
   margin-bottom: 5px;
