@@ -42,12 +42,12 @@
   display: inline-block;
   width: 25%;
   height: 100px;
-  margin-top: 75px;
-  text-align: center;
+  margin-top: 50px;
   color: #ffffff;
 }
 .left-column {
-  margin-left: 25px;
+  margin-top: 0;
+  margin-left: 0;
 }
 .right-column {
   margin-right: 25px;
@@ -63,39 +63,69 @@ h2 {
   font-size: 22px;
 }
 
+#description {
+  font-size: 22px;
+  margin-top: 0;
+}
+
 .weather-icon {
   width: 35%;
   margin-top: 5px;
+  align-self: flex-start;
 }
+
+p.degrees {
+  font-size: 40px;
+  align-self: flex-start;
+}
+
+p.celsius {
+  font-size: 18px;
+  align-self: baseline;
+  margin-top: 5px;
+}
+
+p.fahrenheit {
+  font-size: 18px;
+  align-self: baseline;
+}
+
+p.celsius:hover {
+  color: rgb(176, 242, 210);
+  cursor: pointer;
+}
+p.fahrenheit:hover {
+  color: rgb(176, 242, 210);
+  cursor: pointer;
+}
+
 .column-container {
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
 }
 
 ul.wind-elements,
 .humidity-elements {
   list-style: none;
   color: #ffffff;
-  text-align: justify;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   display: flex;
 }
 
+.wind,
+.humidity {
+  padding-right: 5px;
+}
+
 .degree-container {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   gap: 5px;
   font-size: 22px;
   margin-bottom: 5px;
-}
-
-#celsius:hover {
-  color: rgb(176, 242, 210);
-  cursor: pointer;
-}
-#farenheit:hover {
-  color: rgb(176, 242, 210);
-  cursor: pointer;
+  margin-top: 50px;
 }

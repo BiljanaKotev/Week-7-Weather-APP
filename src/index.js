@@ -37,15 +37,15 @@ function changeDegreeUnitToCelsius() {
 let celsiusClick = document.querySelector("#celsius");
 celsiusClick.addEventListener("click", changeDegreeUnitToCelsius);
 
-function changeDegreeUnitToFarenheit() {
+function changeDegreeUnitToFahrenheit() {
   let city = document.querySelector("h2");
-  let farenheitUnit = document.querySelector("#farenheit");
-  if (farenheitUnit) {
+  let fahrenheitUnit = document.querySelector("#fahrenheit");
+  if (fahrenheitUnit) {
     degreeUnit.innerHTML = response.data.temperature.humidity;
   }
 }
-let farenheitClick = document.querySelector("#farenheit");
-farenheitClick.addEventListener("click", changeDegreeUnitToFarenheit);
+let fahrenheitClick = document.querySelector("#fahrenheit");
+fahrenheitClick.addEventListener("click", changeDegreeUnitToFahrenheit);
 
 function getWeather(response) {
   console.log(response);
@@ -57,6 +57,8 @@ function getWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.temperature.humidity;
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.condition.description;
 }
 
 function search(city) {
