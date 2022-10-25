@@ -1,19 +1,4 @@
-let h1 = document.querySelector("#date-time");
-let current = new Date();
-let date = current.getDate();
-let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-let day = days[current.getDay()];
-let hours = current.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = current.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-h1.innerHTML = `${day} ${date} ${hours}:${minutes}`;
-
+// function to change the h2 to the inputted city
 function changeCity(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#input-city");
@@ -26,27 +11,30 @@ function changeCity(event) {
 let searchCity = document.querySelector("#form-submit");
 searchCity.addEventListener("submit", changeCity);
 
-let degreeUnit = document.querySelector("#degrees");
+// function to format the date
 
-function changeDegreeUnitToCelsius() {
-  let celsiusUnit = document.querySelector("#celsius");
-  if (celsiusUnit) {
-    degreeUnit.innerHTML = 15;
+function formatDate(timestamp) {
+  let current = new Date(timestamp);
+  let date = current.getDate();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[current.getDay()];
+  let hours = current.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
-}
-let celsiusClick = document.querySelector("#celsius");
-celsiusClick.addEventListener("click", changeDegreeUnitToCelsius);
-
-function changeDegreeUnitToFahrenheit() {
-  let city = document.querySelector("h2");
-  let fahrenheitUnit = document.querySelector("#fahrenheit");
-  if (fahrenheitUnit) {
-    degreeUnit.innerHTML = response.data.temperature.humidity;
+  let minutes = current.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
   }
-}
-let fahrenheitClick = document.querySelector("#fahrenheit");
-fahrenheitClick.addEventListener("click", changeDegreeUnitToFahrenheit);
 
+  let h1 = document.querySelector("#date-time");
+  return (h1.innerHTML = `${day} ${date} ${hours}:${minutes}`);
+}
+
+// let realDate = new Date();
+// formatDate(realDate);
+
+// Function for real time data from API
 function getWeather(response) {
   console.log(response);
   let tempDegree = document.querySelector("#degrees");
@@ -59,6 +47,8 @@ function getWeather(response) {
   humidity.innerHTML = response.data.temperature.humidity;
   let description = document.querySelector("#description");
   description.innerHTML = response.data.condition.description;
+  let dateTime = document.querySelector("#date-time");
+  dateTime.innerHTML = formatDate(response.data.time * 1000);
 }
 
 function search(city) {
@@ -77,4 +67,26 @@ function handleSubmit(event) {
 let form = document.querySelector("#form-submit");
 form.addEventListener("submit", handleSubmit);
 
-search("Ohrid");
+search("Athens");
+
+// Function for user to select celsius
+
+function changeDegreeUnitToCelsius() {
+  let degreeUnit = document.querySelector("#degrees");
+  let celsiusUnit = document.querySelector("#celsius");
+  if (celsiusUnit) {
+    degreeUnit.innerHTML = 15;
+  }
+}
+let celsiusClick = document.querySelector("#celsius");
+celsiusClick.addEventListener("click", changeDegreeUnitToCelsius);
+
+// Function for user to select fahrenheit
+function changeDegreeUnitToFahrenheit() {
+  let city = document.querySelector("h2");
+  let fahrenheitUnit = document.querySelector("#fahrenheit");
+  if (fahrenheitUnit) {
+  }
+}
+let fahrenheitClick = document.querySelector("#fahrenheit");
+fahrenheitClick.addEventListener("click", changeDegreeUnitToFahrenheit);

@@ -54,8 +54,9 @@
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 5px;
+  font-weight: lighter;
 }
 
 h2 {
@@ -63,9 +64,13 @@ h2 {
   font-size: 22px;
 }
 
-#description {
+p.description {
   font-size: 22px;
   margin-top: 0;
+}
+
+p.description::first-letter {
+  text-transform: capitalize;
 }
 
 .weather-icon {
