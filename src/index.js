@@ -53,13 +53,14 @@ function getWeather(response) {
   tempDegree.innerHTML = Math.round(response.data.temperature.current);
   let searchCity = document.querySelector("h2");
   searchCity.innerHTML = response.data.city;
+  let wind = document.querySelector("#wind-speed");
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function search(city) {
   let apiKey = "be923c79304a1acdofa6t0cb040e4779";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=be923c79304a1acdofa6t0cb040e4779&units=metric`;
 
-  console.log(apiUrl);
   axios.get(apiUrl).then(getWeather);
 }
 
@@ -73,5 +74,3 @@ let form = document.querySelector("#form-submit");
 form.addEventListener("submit", handleSubmit);
 
 search("Ohrid");
-
-console.log(search);

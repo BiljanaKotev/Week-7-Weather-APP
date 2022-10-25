@@ -72,13 +72,15 @@ h2 {
   justify-content: space-around;
 }
 
-.weather-elements {
+ul.wind-elements,
+.humidity-elements {
   list-style: none;
   color: #ffffff;
   text-align: justify;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
+  display: flex;
 }
 
 .degree-container {
