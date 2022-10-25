@@ -55,6 +55,8 @@ function getWeather(response) {
   searchCity.innerHTML = response.data.city;
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = Math.round(response.data.wind.speed);
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.temperature.humidity;
 }
 
 function search(city) {
